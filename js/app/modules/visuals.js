@@ -57,7 +57,7 @@ Visuals.prototype.Bubbles = function() {
 
       // create particles
       circles = [];
-      for(var x = 0; x < width*0.5; x++) {
+      for(var x = 0; x < width*0.2; x++) {
         var c = new Circle();
         circles.push(c);
       }
@@ -115,7 +115,7 @@ Visuals.prototype.Bubbles = function() {
             init();
         }
         _this.pos.y -= _this.velocity;
-        _this.alpha -= 0.000001;
+        _this.alpha -= 0.00001;
         ctx.beginPath();
         ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
         ctx.fillStyle = 'rgba(220,220,220,'+ _this.alpha+')';
