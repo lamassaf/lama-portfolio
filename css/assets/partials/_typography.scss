@@ -1,0 +1,144 @@
+/*----------------------------------------------------------------------------*/
+/* TYPOGRAPHY ----------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,900,400italic,900italic|Raleway:500,800,200);
+
+/* Font Options --------------------------------------------------------------*/
+
+$font-smaller: em(6);
+$font-small: em(8);
+$font-medium: em(10);
+$font-large: em(12);
+$font-larger: em(16);
+$font-largest: em(20);
+
+
+/* Font Presets --------------------------------------------------------------*/
+
+html, body, h4, h5, h6 { font-family: 'Raleway', sans-serif; }
+
+h1, h2, h3, blockquote { font-family: 'Playfair Display', serif; }
+
+/* Default Font Styles -------------------------------------------------------*/
+
+
+h1 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: $font-largest * 1.4;
+  cursor: default;
+  color: palette(grey, dark);
+  word-wrap: break-word;
+  text-align: center;
+
+  @media (max-width: 1640px) {
+    font-size: $font-largest; 
+  }
+
+  @include media-query(md) { font-size: $font-larger; }
+  @include media-query(xs) { font-size: $font-large; }
+  &.small {
+    font-size: $font-largest;
+    @include media-query(md) { font-size: $font-larger; }
+    @include media-query(xs) { font-size: $font-large; }
+  }
+}
+
+h2 {
+  font-weight: 400;
+  font-size: $font-larger;
+  padding: 16px 0px;
+  @include media-query(md) { font-size: $font-large; }
+  @include media-query(xs) { font-size: $font-medium; }
+}
+
+h3 {
+  font-weight: 400;
+  font-size: $font-large;
+  @include media-query(md) { font-size: $font-medium; }
+  @include media-query(xs) { font-size: $font-small; }
+}
+
+h5 {
+  font-weight: 400;
+  font-size: $font-small;
+  @include media-query(md) { font-size: $font-small * 0.75; }
+}
+
+
+p {
+  font-weight: 100;
+  font-size: $font-small * 0.9;
+  color: palette(grey, darker);
+  padding: 5px 0px;
+  @include media-query(md) { font-size: ($font-small * 0.7); }
+}
+
+b { font-weight: normal; }
+
+blockquote {
+  font-weight: 900;
+  font-style: italic;
+  font-size: $font-larger;
+  text-align: center;
+  color: palette(grey, dark);
+  line-height: 1.25;
+
+  > div {
+    //width: 60%;
+    text-align: center!important;
+    &:before { content: '“'; }
+    &:after { content: '”'; }
+  }
+  &.large { font-size: $font-larger; }
+
+em {
+  font-weight: 900;
+  font-style: italic;
+  font-size: $font-smaller;
+  text-align: center;
+  color: palette(grey, dark);
+  line-height: 1;
+  //padding: 100px;
+}
+
+  
+
+
+  @include media-query(md) { font-size: $font-large; }
+  @include media-query(xs) { font-size: $font-medium; padding: 32px; }
+}
+
+p, blockquote {
+  &.left { text-align: left; }
+  &.center { text-align: center; }
+  &.right { text-align: right; }
+
+  // Left & Right classes reset to center on small viewport
+  &.left,&.right { @include media-query(xs) { text-align: center; } }
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, b, pre, code {
+  &.left { text-align: left; }
+  &.center { text-align: center; }
+  &.right { text-align: right; }
+}
+
+a, a:hover, a:active, a:visited { color: inherit; } // Get parent colour for <a> tags
+
+p {
+  a {
+    @include transition(padding 0.3s ease-out);
+  }
+  a, a:hover { color: palette(grey, dark); text-decoration: none; }
+  a:hover {
+    padding-bottom: 4px; 
+  }
+}
+
+a { cursor: pointer; }
+a.tel {
+  cursor: text;
+  &:hover { text-decoration: none; }
+}
+a:after { }

@@ -1,0 +1,123 @@
+/*----------------------------------------------------------------------------*/
+/* VARS ----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+/* Font Imports --------------------------------------------------------------*/
+
+
+/* Font Options --------------------------------------------------------------*/
+
+$fontSmall: rem(13);
+$fontBase: rem(16);
+$fontMedium: rem(20);
+$fontLarge: rem(26);
+$fontXLarge: rem(42);
+$fontXXLarge: rem(64);
+$fontHuge: rem(110);
+
+
+/* Breakpoints ---------------------------------------------------------------*/
+
+$medium: 480px;
+$wide: 960px;
+$huge: 1600px;
+$mediumContainer: 688px;
+$wideContainer: 864px;
+
+@mixin media-query($media-query) {
+  @if $media-query == small {
+    @media only screen and (max-width: $medium - 1) { @content; }
+  }
+
+  @if $media-query == medium {
+    @media only screen and (max-width: $medium) { @content; }
+  }
+
+  @if $media-query == wide {
+    @media only screen and (max-width: $wide) { @content; }
+  }
+
+  @if $media-query == huge {
+    @media only screen and (min-width: $huge) { @content; }
+  }
+}
+
+// Example usage
+.test {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  @include media-query(small) {
+    background-color: blue;
+  }
+}
+
+
+/* Colours -------------------------------------------------------------------*/
+
+$_color-base-grey: rgb(239,241,244);
+
+$palettes: (
+  grey: (
+    lighter: lighten($_color-base-grey, 10%),
+    light: #fcfcfc,
+    base:  $_color-base-grey,
+    dark: darken($_color-base-grey, 20%),
+    darker: darken($_color-base-grey, 80%)
+  )
+);
+
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get($palettes, $palette), $tone);
+}
+
+// Example usage
+// First value is selected colourgroup
+// Second value is specific shade in colourgroup
+.testColour {
+  background-color: palette(grey, dark);
+}
+
+
+/* Extends -------------------------------------------------------------------*/
+
+// Make full page.
+@mixin fullscreenExtend($position) {
+  position: $position;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+// Add transition.
+@mixin transitionExtend($element, $time) {
+  @include transition ($element $time ease-out);
+}
+
+// Example usage
+.fullscreen {
+  @include fullscreenExtend(fixed); // Accepts absolute, relative, fixed, static
+}
+
+
+
+/* Modules -------------------------------------------------------------------*/
+
+$headerHeight: 96px;
+$iconHeight: 64px;
+$iconMargin: ($headerHeight - $iconHeight) / 2;
+
+// Example usage
+
+.header {
+  height: $headerHeight;
+
+  .icon {
+    height: $iconHeight;
+    margin: $iconMargin 0;
+  }
+}
+
+/* HACKS ---------------------------------------------------------------------*/
+

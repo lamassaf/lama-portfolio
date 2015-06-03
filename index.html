@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Lama Assaf's Portfolio">
+  <meta name="author" content="Pim de Wit">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <style> /* Firefox seems to have issues loading the clip path from inside the CSS */
+    .link--urpi::before {
+      -webkit-clip-path: url(#cp_up); 
+      clip-path: url(#cp_up);
+    }
+
+    .link--urpi::after {
+      -webkit-clip-path: url(#cp_down); 
+      clip-path: url(#cp_down);
+    }
+  </style>
+</head>
+
+<body role="main">
+
+  <svg class="hidden" viewBox="0 0 310 160">
+    <defs>
+      <clippath id="cp_up">
+        <polygon id="cp_poly_up" points="0,0 310,0 310,160" />
+      </clippath>
+      <clippath id="cp_down">
+        <polygon id="cp_poly_down" points="0,0 0,160 310,160" />
+      </clippath>
+    </defs>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+<!-- ////////////////////// HOME///////////////////////// -->
+      <section data-background="#fda9a9">
+          <div class="scrollable centered">
+
+            <div class="container-fluid">
+                <h4 class="col-md-8 col-md-offset-2 center">Lama Assaf Portfolio.</h4>
+
+                <div class="grid__item color-5">
+        <a class="link link--urpi" href="#" data-letters="Urpi">Urpi</a>
+      </div>
+
+                <blockquote class="col-md-12 center">
+                    <div class="flowtype">Learn the rules like a pro,<br/>so you can break them like an artist.</div><br/>
+                    <em>Pablo Pikasso</em>
+                </blockquote>
+            </div>
+
+          </div>
+          <canvas id="bubbles" class="fullscreen"></canvas>
+      </section>
+
+<!-- ////////////////////// PORTFOLIO ///////////////////////// -->
+
+    <section data-background="#dbdbdb"> <!-- ///////////// Project 1: Page 1 ///////////// -->
+        <section>
+          <div class="scrollable centered">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1>The Riddler</h1>
+                  <p >This project is aimed for riddle solvers and mystery lovers. </p>
+                </div>
+              </div>
+              <div class="row" data-transition="zoom">
+                <div class="image col-md-6 col-md-offset-3"><img src="img/projects/box-cover.gif" alt="The Riddler"></div>
+              </div>
+
+              <button><a href="#/1/1">v</a></button>
+            </div>
+          </div>
+        </section>
+        
+
+        <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"> <!-- ///////////// Project 1: Page 3 ///////////// -->
+          <div class="scrollable">
+            <div class="container-fluid">
+              <div class="row">
+                <h1>Test</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+    </div>
+  </div>
+
+<!-- Libraries -->
+<script src="./js/lib/modernizr/modernizr.js"></script>
+<script src="./js/lib/jquery/jquery.js"></script>
+<script src="./js/lib/bootstrap/bootstrap.js"></script>
+<script src="./js/lib/reveal/reveal.js"></script>
+<script src="./js/lib/flowtype/flowtype.js"></script>
+<!-- Modules -->
+<script src="./js/app/modules/security.js"></script>
+<script src="./js/app/modules/interface.js"></script>
+<script src="./js/app/modules/visuals.js"></script>
+<!-- Main -->
+<script src="./js/app/app.js"></script>
+
+</body>
+</html>
