@@ -64,6 +64,16 @@ Interface.prototype.Reveal = function() {
 };
 
 Interface.prototype.Riddler = function() {
+  // Define which HTML elements are the buttons
+  var button0 = $('#riddler input.zero');
+  var button1 = $('#riddler input.one');
+  var button2 = $('#riddler input.two');
+  var button3 = $('#riddler input.three');
+  var button4 = $('#riddler input.four');
+  var button5 = $('#riddler input.five');
+  var button6 = $('#riddler input.six');
+  var button7 = $('#riddler input.seven');
+  var button8 = $('#riddler input.eight');
 
   // All buttons are off at start
   var button_value0 = false;
@@ -76,6 +86,62 @@ Interface.prototype.Riddler = function() {
   var button_value7 = false;
   var button_value8 = false;
 
+  var led_state0 = $('.led.one');
+  var led_state1 = $('.led.two');
+  var led_state2 = $('.led.three');
+
+  button0.click(function() {
+    button_value0 = true;
+    console.log(button_value0);
+  });
+
+  if (button_value0 != prev_button_value0) {
+    button_value0 = false;
+    console.log(button_value0);
+    led_state0 = led_state1;
+    led_state1 = led_state0;
+  }
+
+  if (button_value1 != prev_button_value1) {
+    led_state1 = !led_state1;
+    led_state2 = !led_state2;
+  }
+
+  if (button_value2 != prev_button_value2) {
+    led_state1 = !led_state1;
+    led_state0 = !led_state1;
+  }
+
+  if (button_value3 != prev_button_value3) {
+    led_state1 = !led_state2;
+  }
+
+  if (button_value4 != prev_button_value4) {
+    led_state0 = led_state1;
+    led_state1 = !led_state1;
+  }
+
+  if (button_value5 != prev_button_value5) {
+    led_state1 = led_state0;
+    led_state0 = !led_state0;
+  }
+
+  if (button_value6 != prev_button_value6) {
+    led_state1 = led_state2;
+    led_state2 = !led_state1;
+  }
+
+  if (button_value7 != prev_button_value7) {
+    led_state1 = !led_state1;
+    led_state0 = !led_state2;
+  }
+
+  if (button_value8 != prev_button_value8) {
+    led_state0 = !led_state0;
+    led_state1 = !led_state0;
+  }
+
+
   // Previous button value
   var prev_button_value0 = button_value0;
   var prev_button_value1 = button_value1;
@@ -86,16 +152,6 @@ Interface.prototype.Riddler = function() {
   var prev_button_value6 = button_value6;
   var prev_button_value7 = button_value7;
   var prev_button_value8 = button_value8;
-
-  var led_state0 = $('.led.one');
-  var led_state1 = $('.led.two');
-  var led_state2 = $('.led.three');
-
-  if ( button_value0 != prev_button_value0) {
-    led_state0 =  led_state1;
-    led_state1 =  led_state0;
-    delay( 10 );
-  }
 
   // for (i = 0; i < buttons.length; i++) {}
 };
